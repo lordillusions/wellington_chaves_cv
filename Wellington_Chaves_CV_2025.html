@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wellington Chaves — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:       #0e1117;
+    --ink-mid:   #2d3340;
+    --ink-light: #5a6072;
+    --rule:      #d4d8e2;
+    --accent:    #1a3a5c;
+    --accent2:   #c0392b;
+    --paper:     #fafaf8;
+    --tag-bg:    #eef1f6;
+  }
+
+  html { font-size: 10pt; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── PAGE SHELL ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: #fff;
+    display: grid;
+    grid-template-columns: 68mm 1fr;
+  }
+
+  /* ─── LEFT COLUMN ─── */
+  .left {
+    background: var(--accent);
+    color: #e8ecf2;
+    padding: 10mm 7mm 10mm 8mm;
+    display: flex;
+    flex-direction: column;
+    gap: 7mm;
+  }
+
+  .name-block { border-bottom: 1px solid rgba(255,255,255,.18); padding-bottom: 5mm; }
+
+  .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22pt;
+    font-weight: 600;
+    line-height: 1.1;
+    color: #fff;
+    letter-spacing: -.3px;
+  }
+
+  .title {
+    font-size: 8pt;
+    font-weight: 500;
+    letter-spacing: 1.6px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.62);
+    margin-top: 3px;
+  }
+
+  .contact-block { display: flex; flex-direction: column; gap: 4px; }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    font-size: 7.5pt;
+    color: rgba(255,255,255,.78);
+    line-height: 1.4;
+  }
+
+  .contact-item .ico {
+    width: 14px;
+    flex-shrink: 0;
+    opacity: .65;
+    margin-top: 1px;
+  }
+
+  /* left section headers */
+  .lsec-title {
+    font-size: 6.8pt;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 4px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid rgba(255,255,255,.14);
+  }
+
+  /* skills tags */
+  .tag-group { display: flex; flex-direction: column; gap: 3px; }
+
+  .tag {
+    background: rgba(255,255,255,.09);
+    border: 1px solid rgba(255,255,255,.13);
+    border-radius: 3px;
+    font-size: 7.2pt;
+    color: rgba(255,255,255,.82);
+    padding: 2px 7px;
+    line-height: 1.5;
+  }
+
+  .tag-bold {
+    font-weight: 600;
+    color: #fff;
+    background: rgba(255,255,255,.15);
+  }
+
+  /* cert list */
+  .cert-item {
+    font-size: 7pt;
+    color: rgba(255,255,255,.7);
+    padding: 2px 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    line-height: 1.4;
+  }
+
+  .lang-row { display: flex; justify-content: space-between; align-items: center; font-size: 7.5pt; }
+  .lang-name { color: rgba(255,255,255,.85); font-weight: 500; }
+  .lang-level { color: rgba(255,255,255,.5); font-size: 6.8pt; }
+
+  /* ─── RIGHT COLUMN ─── */
+  .right {
+    padding: 10mm 9mm 10mm 10mm;
+    display: flex;
+    flex-direction: column;
+    gap: 6mm;
+  }
+
+  .rsec-title {
+    font-size: 6.8pt;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--accent);
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+  }
+
+  /* summary */
+  .summary-text {
+    font-size: 8pt;
+    color: var(--ink-mid);
+    line-height: 1.65;
+  }
+
+  /* experience */
+  .exp-item { margin-bottom: 5mm; }
+  .exp-item:last-child { margin-bottom: 0; }
+
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1px; }
+
+  .exp-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 12pt;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .exp-date {
+    font-size: 7pt;
+    color: var(--ink-light);
+    white-space: nowrap;
+    margin-left: 8px;
+    margin-top: 2px;
+  }
+
+  .exp-company {
+    font-size: 7.8pt;
+    font-weight: 600;
+    color: var(--accent2);
+    letter-spacing: .3px;
+    margin-bottom: 4px;
+  }
+
+  .exp-bullets { padding-left: 10px; }
+
+  .exp-bullets li {
+    font-size: 7.5pt;
+    color: var(--ink-mid);
+    margin-bottom: 2px;
+    line-height: 1.5;
+    list-style: none;
+    position: relative;
+  }
+
+  .exp-bullets li::before {
+    content: "–";
+    position: absolute;
+    left: -9px;
+    color: var(--accent2);
+    font-weight: 600;
+  }
+
+  .sub-section-label {
+    font-size: 6.8pt;
+    font-weight: 600;
+    letter-spacing: .8px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 4px 0 2px;
+  }
+
+  /* education */
+  .edu-item { margin-bottom: 3mm; }
+  .edu-degree { font-weight: 600; font-size: 8pt; color: var(--ink); }
+  .edu-school { font-size: 7.5pt; color: var(--ink-light); }
+  .edu-year { font-size: 7pt; color: var(--ink-light); }
+
+  /* core competencies grid */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 8px;
+  }
+
+  .comp-item {
+    font-size: 7.5pt;
+    color: var(--ink-mid);
+    padding: 2px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .comp-item::before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent2);
+    flex-shrink: 0;
+  }
+
+  /* divider between early career */
+  .early-career {
+    background: var(--tag-bg);
+    border-left: 2px solid var(--accent);
+    padding: 3px 6px;
+    font-size: 7pt;
+    color: var(--ink-light);
+    margin-top: 3mm;
+  }
+
+  @media print {
+    html { font-size: 9.5pt; }
+    body { background: #fff; }
+    .page { width: 210mm; box-shadow: none; }
+    @page { margin: 0; size: A4; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════ LEFT ══════════════════ -->
+  <aside class="left">
+
+    <div class="name-block">
+      <div class="name">Wellington<br>Chaves</div>
+      <div class="title">Enterprise &amp; Solution Architect</div>
+    </div>
+
+    <div class="contact-block">
+      <div class="lsec-title">Contact</div>
+      <div class="contact-item">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2A19.86 19.86 0 013.06 4.18 2 2 0 015.07 2h3a2 2 0 012 1.72c.13 1 .37 1.97.72 2.9a2 2 0 01-.45 2.11L9.09 9.91a16 16 0 006.99 7l1.18-1.18a2 2 0 012.11-.45c.93.35 1.9.59 2.9.72A2 2 0 0122 16.92z"/></svg>
+        +81 (080) 7512-4244
+      </div>
+      <div class="contact-item">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        wchaves@gmail.com
+      </div>
+      <div class="contact-item">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Tokyo / Japan
+      </div>
+      <div class="contact-item">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        linkedin.com/in/wchaves
+      </div>
+    </div>
+
+    <!-- Architecture Skills -->
+    <div>
+      <div class="lsec-title">Architecture</div>
+      <div class="tag-group">
+        <div class="tag tag-bold">Enterprise Architecture</div>
+        <div class="tag tag-bold">Solution Architecture</div>
+        <div class="tag">Architecture Governance</div>
+        <div class="tag">IT4IT (The Open Group)</div>
+        <div class="tag">System Design</div>
+        <div class="tag">Distributed Systems</div>
+        <div class="tag">Integration Architecture</div>
+        <div class="tag">API Design / iPaaS</div>
+        <div class="tag">Event-Driven Architecture</div>
+        <div class="tag">Microservices</div>
+      </div>
+    </div>
+
+    <!-- Cloud -->
+    <div>
+      <div class="lsec-title">Cloud &amp; Platform</div>
+      <div class="tag-group">
+        <div class="tag tag-bold">Google Cloud Platform (GCP)</div>
+        <div class="tag tag-bold">Microsoft Azure</div>
+        <div class="tag">AWS · IBM Cloud</div>
+        <div class="tag">Kubernetes · Containers</div>
+        <div class="tag">Cloud-Native Architecture</div>
+        <div class="tag">Hybrid / Multi-Cloud</div>
+      </div>
+    </div>
+
+    <!-- AI -->
+    <div>
+      <div class="lsec-title">AI / Data</div>
+      <div class="tag-group">
+        <div class="tag tag-bold">Artificial Intelligence</div>
+        <div class="tag tag-bold">Generative AI / LLM</div>
+        <div class="tag">RAG Architecture</div>
+        <div class="tag">AI Governance</div>
+        <div class="tag">Data Architecture</div>
+        <div class="tag">MLOps</div>
+      </div>
+    </div>
+
+    <!-- Security -->
+    <div>
+      <div class="lsec-title">Security &amp; Compliance</div>
+      <div class="tag-group">
+        <div class="tag tag-bold">Security Architecture</div>
+        <div class="tag">IAM · Zero Trust</div>
+        <div class="tag">Risk Management</div>
+        <div class="tag">DevSecOps</div>
+        <div class="tag">Pen Test · SOC · MSAC</div>
+        <div class="tag">ISO · PwC Audit Readiness</div>
+      </div>
+    </div>
+
+    <!-- Governance Tools -->
+    <div>
+      <div class="lsec-title">Governance &amp; Tools</div>
+      <div class="tag-group">
+        <div class="tag tag-bold">LeanIX</div>
+        <div class="tag">Technical Governance</div>
+        <div class="tag">HLD Documentation</div>
+        <div class="tag">Asset Management</div>
+        <div class="tag">Java · Python · JavaScript</div>
+      </div>
+    </div>
+
+    <!-- Languages -->
+    <div>
+      <div class="lsec-title">Languages</div>
+      <div style="display:flex;flex-direction:column;gap:3px;">
+        <div class="lang-row"><span class="lang-name">Japanese</span><span class="lang-level">Fluent · JLPT N2</span></div>
+        <div class="lang-row"><span class="lang-name">English</span><span class="lang-level">Fluent · Business</span></div>
+        <div class="lang-row"><span class="lang-name">Portuguese</span><span class="lang-level">Native</span></div>
+        <div class="lang-row"><span class="lang-name">Spanish</span><span class="lang-level">Limited Working</span></div>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div>
+      <div class="lsec-title">Certifications</div>
+      <div style="display:flex;flex-direction:column;gap:1px;">
+        <div class="cert-item">Azure Solutions Architect Expert<br><span style="font-size:6.5pt;opacity:.65;">AZ-104 &amp; AZ-305</span></div>
+        <div class="cert-item">Google Professional Cloud Architect</div>
+        <div class="cert-item">IBM Certified Solution Architect<br><span style="font-size:6.5pt;opacity:.65;">Cloud Computing Infrastructure</span></div>
+        <div class="cert-item">IT4IT Foundation — The Open Group</div>
+        <div class="cert-item">PMP® — Project Management Professional</div>
+        <div class="cert-item">ITIL® v3 Foundation</div>
+        <div class="cert-item">LPIC-1 Certified Linux Administrator</div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ══════════════════ RIGHT ══════════════════ -->
+  <main class="right">
+
+    <!-- Summary -->
+    <section>
+      <div class="rsec-title">Profile</div>
+      <p class="summary-text">
+        Enterprise Architect with <strong>20+ years</strong> designing and governing large-scale enterprise systems across global organizations. Specialized in <strong>Enterprise &amp; Solution Architecture</strong>, with deep focus on <strong>Technical Governance, AI, Security</strong>, and <strong>Cloud</strong>. Proven track record leading transformation initiatives, defining architecture governance frameworks, and ensuring compliance across complex IT landscapes. Bilingual (English &amp; Japanese — JLPT N2) with extensive experience in multicultural, globally distributed environments.
+      </p>
+    </section>
+
+    <!-- Core Competencies -->
+    <section>
+      <div class="rsec-title">Core Competencies</div>
+      <div class="comp-grid">
+        <div class="comp-item">Enterprise &amp; Solution Architecture</div>
+        <div class="comp-item">Cloud Architecture (Multi-cloud)</div>
+        <div class="comp-item">Architecture Governance · IT4IT</div>
+        <div class="comp-item">AI / GenAI Governance &amp; Design</div>
+        <div class="comp-item">Integration Architecture · iPaaS · API</div>
+        <div class="comp-item">Security Architecture · IAM</div>
+        <div class="comp-item">Technical Governance &amp; Compliance</div>
+        <div class="comp-item">Risk Management · Audit Readiness</div>
+        <div class="comp-item">Enterprise Asset Management (LeanIX)</div>
+        <div class="comp-item">HLD Documentation &amp; Review</div>
+        <div class="comp-item">Stakeholder &amp; Executive Alignment</div>
+        <div class="comp-item">Global Cross-Functional Leadership</div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section>
+      <div class="rsec-title">Professional Experience</div>
+
+      <!-- Kyndryl EA -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Enterprise Architect</div>
+          <div class="exp-date">Sep 2023 – Present</div>
+        </div>
+        <div class="exp-company">Kyndryl · Tokyo, Japan — CIO Enterprise Architecture</div>
+        <ul class="exp-bullets">
+          <li>Defined enterprise-wide integration architecture using API-driven and event-driven design, improving interoperability across multiple business domains.</li>
+        </ul>
+
+        <div class="sub-section-label">Technical Governance &amp; Architecture Control</div>
+        <ul class="exp-bullets">
+          <li>Led enterprise technical governance, reviewing and approving all new applications and major changes for compliance with architecture, security, and operational standards.</li>
+          <li>Acted as architectural gatekeeper, ensuring stakeholder alignment and completeness before deployment approval.</li>
+          <li>Applied IT4IT (The Open Group) framework to structure architecture governance and application lifecycle management.</li>
+        </ul>
+
+        <div class="sub-section-label">Enterprise Asset Management &amp; Documentation</div>
+        <ul class="exp-bullets">
+          <li>Ensured all software assets are correctly registered, classified, and maintained in <strong>LeanIX</strong> (Enterprise Architecture &amp; Asset Management).</li>
+          <li>Led creation and validation of <strong>High-Level Design (HLD)</strong> documentation, ensuring architectural decisions, risks, and dependencies are clearly defined for all stakeholders.</li>
+          <li>Maintained up-to-date architecture documentation to ensure audit readiness and traceable governance.</li>
+        </ul>
+
+        <div class="sub-section-label">Security, Risk &amp; Compliance</div>
+        <ul class="exp-bullets">
+          <li>Ensured applications meet enterprise security requirements including <strong>Penetration Testing, Risk Management, SOC, MSAC, and SPIR</strong> compliance frameworks.</li>
+          <li>Supported audit readiness for <strong>ISO certifications</strong> and external audits (PwC), enabling Kyndryl to maintain critical certifications.</li>
+          <li>Applied secure-by-design and risk-based architecture principles across governance processes.</li>
+        </ul>
+
+        <div class="sub-section-label">AI Governance</div>
+        <ul class="exp-bullets">
+          <li>Contributed to AI governance initiatives, ensuring responsible AI usage, architectural consistency, and risk documentation for AI-based solutions.</li>
+        </ul>
+      </div>
+
+      <!-- Kyndryl Chief Architect -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">HR Chief Architect</div>
+          <div class="exp-date">Nov 2021 – Sep 2023</div>
+        </div>
+        <div class="exp-company">Kyndryl · Tokyo, Japan — CIO Enterprise Applications</div>
+        <ul class="exp-bullets">
+          <li>Orchestrated large-scale HR technology transformation during Kyndryl's spin-off from IBM, redesigning business processes and separating systems from parent company infrastructure.</li>
+          <li>Applied IT4IT frameworks to establish enterprise architecture practices, enhancing system governance and efficiency.</li>
+          <li>Aligned <strong>140+ HR systems</strong> with strategic business objectives, partnering directly with executives on technology roadmaps.</li>
+          <li>Drove adoption of modern cloud platforms (Microsoft Azure, GCP, IBM Cloud) for operational excellence and cost reduction.</li>
+        </ul>
+      </div>
+
+      <!-- IBM Lead Architect -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Lead Architect — CIO HRIT</div>
+          <div class="exp-date">Nov 2019 – Nov 2021</div>
+        </div>
+        <div class="exp-company">IBM · Tokyo, Japan</div>
+        <ul class="exp-bullets">
+          <li>Designed and implemented cloud architectures for Japan Payroll Transformation on SAP HRMS, integrating all upstream and downstream systems across Japan operations.</li>
+          <li>Migrated legacy HR systems to cloud platforms, improving reliability, scalability, and cost efficiency.</li>
+          <li>Introduced IT4IT-based governance frameworks to streamline enterprise architecture practices.</li>
+        </ul>
+      </div>
+
+      <!-- IBM IT Architect -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">IT Architect &amp; Technical Leader — Global HR</div>
+          <div class="exp-date">Jan 2016 – Nov 2019</div>
+        </div>
+        <div class="exp-company">IBM · United States / Global</div>
+        <ul class="exp-bullets">
+          <li>Technical leader for Global HR systems modernization and cloud migration across multiple regions.</li>
+          <li>Developed AI-driven solutions including <strong>AI TravelBot (IBM Watson)</strong>, automating employee inquiries globally and reducing operational overhead — recognized with multiple company awards.</li>
+          <li>Led iPaaS adoption strategy for Travel &amp; Expenses and Mobility Tools, influencing executive decisions on technology investments.</li>
+          <li>Led globally distributed engineering teams across Americas, Europe, Asia-Pacific, and Japan.</li>
+        </ul>
+      </div>
+
+      <!-- IBM Senior IT Specialist -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-role">Senior IT Specialist — Technical Leader</div>
+          <div class="exp-date">Jan 2011 – Jan 2016</div>
+        </div>
+        <div class="exp-company">IBM · São Paulo, Brazil</div>
+        <ul class="exp-bullets">
+          <li>Technical Leader for <strong>WWER (World Wide Expenses Reimbursement)</strong> — a business-critical global platform deployed across <strong>93 countries, 40 languages</strong>, serving 85%+ of IBM workforce.</li>
+          <li>Managed high-availability WebSphere / AIX / DB2 infrastructure; led major system upgrades, releases, and environment changes.</li>
+        </ul>
+      </div>
+
+      <!-- Early career condensed -->
+      <div class="early-career">
+        <strong>Early Career (2001 – 2011):</strong> Team Lead, Developer, and BI Analyst roles at IBM (Sprint/Nextel, MEDCO, OMIM), FAPESP, and various technology companies. Foundation in Java development, database engineering, system integration, and infrastructure. Led version control, production support, and data pipeline engineering across Brazil-based teams.
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section>
+      <div class="rsec-title">Education</div>
+      <div class="edu-item">
+        <div class="edu-degree">Bachelor of Computer Science</div>
+        <div class="edu-school">UNESP — Universidade Estadual Paulista Júlio de Mesquita Filho</div>
+        <div class="edu-year">2003 – 2007 · São Paulo, Brazil</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>

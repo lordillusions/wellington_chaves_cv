@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>職務経歴書 — ウェリントン・シャーヴィス</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink:        #111318;
+    --ink-mid:    #2c2f3a;
+    --ink-light:  #6b7280;
+    --rule:       #d1d5db;
+    --rule-light: #e8eaed;
+    --accent:     #2d3748;      /* 落ち着いた濃紺 */
+    --accent2:    #9b2335;      /* 控えめな深紅 */
+    --accent-bg:  #f3f4f6;
+    --paper:      #ffffff;
+    --sidebar:    #f7f8fa;
+  }
+
+  html { font-size: 9.5pt; }
+
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    color: var(--ink);
+    background: #e8e8e8;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    word-break: break-all;
+    overflow-wrap: break-word;
+  }
+
+  /* ─── PAGE SHELL ─── */
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: var(--paper);
+  }
+
+  /* ─── HEADER BAND ─── */
+  .header {
+    background: var(--accent);
+    padding: 8mm 10mm 7mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 8mm;
+  }
+
+  .header-left {}
+
+  .header-label {
+    font-size: 6.5pt;
+    letter-spacing: 2.5px;
+    color: rgba(255,255,255,.45);
+    margin-bottom: 4px;
+    font-weight: 400;
+  }
+
+  .name-jp {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 20pt;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.1;
+    letter-spacing: 2px;
+  }
+
+  .name-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 10pt;
+    color: rgba(255,255,255,.55);
+    letter-spacing: 1px;
+    margin-top: 3px;
+  }
+
+  .title-jp {
+    font-size: 8pt;
+    color: rgba(255,255,255,.7);
+    margin-top: 6px;
+    letter-spacing: .8px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    padding-top: 5px;
+  }
+
+  /* contact table in header */
+  .header-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    text-align: right;
+  }
+
+  .hc-item {
+    font-size: 7pt;
+    color: rgba(255,255,255,.65);
+    letter-spacing: .3px;
+  }
+
+  .hc-label {
+    color: rgba(255,255,255,.35);
+    font-size: 6pt;
+    margin-right: 4px;
+  }
+
+  /* ─── PERSONAL INFO TABLE (Japanese style) ─── */
+  .personal-section {
+    border-bottom: 2px solid var(--accent);
+    padding: 4mm 10mm;
+    background: var(--accent-bg);
+  }
+
+  .personal-grid {
+    display: grid;
+    grid-template-columns: 22mm 1fr 22mm 1fr;
+    gap: 0;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .pg-label {
+    background: var(--accent);
+    color: rgba(255,255,255,.8);
+    font-size: 6.8pt;
+    font-weight: 500;
+    padding: 3px 6px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    letter-spacing: .5px;
+  }
+
+  .pg-value {
+    font-size: 7.5pt;
+    padding: 3px 7px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    color: var(--ink-mid);
+    background: #fff;
+  }
+
+  .pg-value:last-child, .pg-label:nth-child(7), .pg-label:nth-child(8), .pg-value:nth-child(7), .pg-value:nth-child(8) {
+    border-bottom: none;
+  }
+
+  /* ─── BODY LAYOUT ─── */
+  .body {
+    display: grid;
+    grid-template-columns: 58mm 1fr;
+  }
+
+  /* ─── LEFT SIDEBAR ─── */
+  .sidebar {
+    background: var(--sidebar);
+    border-right: 1px solid var(--rule-light);
+    padding: 7mm 6mm 8mm 8mm;
+    display: flex;
+    flex-direction: column;
+    gap: 5mm;
+  }
+
+  .s-sec-title {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent2);
+    border-bottom: 1px solid var(--accent2);
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .skill-category { margin-bottom: 4mm; }
+
+  .skill-cat-label {
+    font-size: 6.3pt;
+    color: var(--ink-light);
+    font-weight: 700;
+    letter-spacing: .8px;
+    margin-bottom: 3px;
+    margin-top: 3px;
+    text-transform: uppercase;
+  }
+
+  .skill-pill {
+    display: inline-block;
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    font-size: 6.8pt;
+    color: var(--ink-mid);
+    padding: 1.5px 5px;
+    margin: 1.5px 1.5px 0 0;
+    line-height: 1.5;
+  }
+
+  .skill-pill.strong {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+    font-weight: 500;
+  }
+
+  /* certs */
+  .cert-row {
+    padding: 2.5px 0;
+    border-bottom: 1px solid var(--rule-light);
+    font-size: 6.8pt;
+    color: var(--ink-mid);
+    line-height: 1.45;
+  }
+
+  .cert-row:last-child { border-bottom: none; }
+
+  .cert-badge {
+    display: inline-block;
+    font-size: 5.8pt;
+    background: var(--accent2);
+    color: #fff;
+    padding: 0 3px;
+    border-radius: 1px;
+    margin-right: 3px;
+    vertical-align: middle;
+    font-weight: 600;
+    letter-spacing: .3px;
+  }
+
+  /* language meter */
+  .lang-item { margin-bottom: 4px; }
+
+  .lang-name-jp {
+    font-size: 7pt;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .lang-bar {
+    height: 3px;
+    background: var(--rule);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .lang-bar-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .lang-desc {
+    font-size: 6pt;
+    color: var(--ink-light);
+    margin-top: 1px;
+  }
+
+  /* ─── MAIN CONTENT ─── */
+  .main {
+    padding: 7mm 9mm 8mm 8mm;
+    display: flex;
+    flex-direction: column;
+    gap: 5mm;
+  }
+
+  .m-sec-title {
+    font-size: 7pt;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent);
+    border-bottom: 1.5px solid var(--accent);
+    padding-bottom: 2px;
+    margin-bottom: 4px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: uppercase;
+  }
+
+  .m-sec-title::before {
+    content: "";
+    width: 3px;
+    height: 11px;
+    background: var(--accent2);
+    display: inline-block;
+    border-radius: 1px;
+    flex-shrink: 0;
+  }
+
+  /* summary */
+  .summary-text {
+    font-size: 7.8pt;
+    color: var(--ink-mid);
+    line-height: 1.85;
+    text-align: justify;
+  }
+
+  /* competency table */
+  .comp-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 7.2pt;
+  }
+
+  .comp-table td {
+    padding: 2.5px 6px;
+    border: 1px solid var(--rule-light);
+    color: var(--ink-mid);
+    vertical-align: top;
+    line-height: 1.5;
+  }
+
+  .comp-table td:first-child {
+    background: var(--accent-bg);
+    color: var(--accent);
+    font-weight: 600;
+    width: 35%;
+    font-size: 6.8pt;
+    letter-spacing: .3px;
+  }
+
+  /* experience */
+  .exp-block {
+    padding-bottom: 4mm;
+    border-bottom: 1px dashed var(--rule);
+    margin-bottom: 4mm;
+  }
+
+  .exp-block:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .exp-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1px;
+  }
+
+  .exp-company-jp {
+    font-family: 'Noto Serif JP', serif;
+    font-size: 10pt;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  .exp-period {
+    font-size: 6.8pt;
+    color: var(--ink-light);
+    white-space: nowrap;
+    margin-left: 5px;
+    margin-top: 3px;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .exp-role-jp {
+    font-size: 7.8pt;
+    color: var(--accent2);
+    font-weight: 700;
+    margin-bottom: 4px;
+    letter-spacing: .3px;
+  }
+
+  .exp-dept {
+    font-size: 6.8pt;
+    color: var(--ink-light);
+    margin-bottom: 4px;
+  }
+
+  /* sub label */
+  .sub-label {
+    font-size: 6.5pt;
+    font-weight: 700;
+    letter-spacing: .8px;
+    color: var(--accent);
+    background: var(--accent-bg);
+    padding: 1.5px 5px;
+    margin: 4px 0 2px;
+    border-left: 2px solid var(--accent2);
+    display: block;
+    text-transform: uppercase;
+  }
+
+  .exp-list { padding-left: 9px; }
+
+  .exp-list li {
+    font-size: 7.3pt;
+    color: var(--ink-mid);
+    margin-bottom: 2px;
+    line-height: 1.65;
+    list-style: none;
+    position: relative;
+  }
+
+  .exp-list li::before {
+    content: "▸";
+    position: absolute;
+    left: -9px;
+    color: var(--accent2);
+    font-size: 6pt;
+    top: 2px;
+  }
+
+  /* early career box */
+  .early-box {
+    background: var(--accent-bg);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--accent);
+    padding: 4px 7px;
+    font-size: 7pt;
+    color: var(--ink-light);
+    line-height: 1.65;
+    margin-top: 2mm;
+  }
+
+  /* education */
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 3px 0;
+    border-bottom: 1px solid var(--rule-light);
+    font-size: 7.3pt;
+  }
+
+  .edu-row:last-child { border-bottom: none; }
+
+  .edu-left {}
+
+  .edu-degree-jp { font-weight: 700; color: var(--ink); line-height: 1.4; }
+
+  .edu-school-jp { color: var(--ink-light); font-size: 6.8pt; }
+
+  .edu-year-jp {
+    font-size: 6.8pt;
+    color: var(--ink-light);
+    white-space: nowrap;
+    margin-left: 5px;
+    margin-top: 3px;
+  }
+
+  /* footer strip */
+  .footer {
+    background: var(--accent);
+    padding: 3mm 10mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-text {
+    font-size: 6.5pt;
+    color: rgba(255,255,255,.4);
+    letter-spacing: .5px;
+  }
+
+  @media print {
+    html { font-size: 9pt; }
+    body { background: #fff; }
+    .page { width: 210mm; box-shadow: none; }
+    @page { margin: 0; size: A4; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════ HEADER ══════════ -->
+  <header class="header">
+    <div class="header-left">
+      <div class="header-label">職務経歴書</div>
+      <div class="name-jp">ウェリントン・シャーヴィス</div>
+      <div class="name-en">Wellington Chaves</div>
+      <div class="title-jp">エンタープライズアーキテクト｜ソリューションアーキテクト｜AI・クラウド・セキュリティ</div>
+    </div>
+    <div class="header-contact">
+      <div class="hc-item"><span class="hc-label">電話</span>080-7512-4244</div>
+      <div class="hc-item"><span class="hc-label">メール</span>wchaves@gmail.com</div>
+      <div class="hc-item"><span class="hc-label">居住地</span>東京都</div>
+      <div class="hc-item"><span class="hc-label">LinkedIn</span>linkedin.com/in/wchaves</div>
+      <div class="hc-item"><span class="hc-label">日本語</span>ビジネスレベル（JLPT N2）</div>
+    </div>
+  </header>
+
+  <!-- ══════════ PERSONAL INFO TABLE ══════════ -->
+  <div class="personal-section">
+    <div class="personal-grid">
+      <div class="pg-label">国籍</div>
+      <div class="pg-value">ブラジル</div>
+      <div class="pg-label">在留資格</div>
+      <div class="pg-value">就労（会社員）</div>
+      <div class="pg-label">日本語能力</div>
+      <div class="pg-value">ビジネスレベル / JLPT N2</div>
+      <div class="pg-label">英語能力</div>
+      <div class="pg-value">ネイティブレベル / ビジネス</div>
+      <div class="pg-label">IT経験年数</div>
+      <div class="pg-value">20年以上</div>
+      <div class="pg-label">最終学歴</div>
+      <div class="pg-value">コンピュータサイエンス学士（UNESP）</div>
+    </div>
+  </div>
+
+  <!-- ══════════ BODY ══════════ -->
+  <div class="body">
+
+    <!-- ───── LEFT SIDEBAR ───── -->
+    <aside class="sidebar">
+
+      <!-- Skills -->
+      <div>
+        <div class="s-sec-title">スキル</div>
+
+        <div class="skill-category">
+          <div class="skill-cat-label">アーキテクチャ</div>
+          <span class="skill-pill strong">エンタープライズアーキテクチャ</span>
+          <span class="skill-pill strong">ソリューションアーキテクチャ</span>
+          <span class="skill-pill">アーキテクチャガバナンス</span>
+          <span class="skill-pill">IT4IT（OpenGroup）</span>
+          <span class="skill-pill">システム設計</span>
+          <span class="skill-pill">統合アーキテクチャ</span>
+          <span class="skill-pill">API設計</span>
+          <span class="skill-pill">iPaaS</span>
+          <span class="skill-pill">イベント駆動型設計</span>
+          <span class="skill-pill">マイクロサービス</span>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-label">クラウド・プラットフォーム</div>
+          <span class="skill-pill strong">Google Cloud (GCP)</span>
+          <span class="skill-pill strong">Microsoft Azure</span>
+          <span class="skill-pill">AWS</span>
+          <span class="skill-pill">IBM Cloud</span>
+          <span class="skill-pill">Kubernetes</span>
+          <span class="skill-pill">マルチクラウド</span>
+          <span class="skill-pill">ハイブリッドクラウド</span>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-label">AI・データ</div>
+          <span class="skill-pill strong">AI / 生成AI</span>
+          <span class="skill-pill strong">LLM統合設計</span>
+          <span class="skill-pill">RAGアーキテクチャ</span>
+          <span class="skill-pill">AIガバナンス</span>
+          <span class="skill-pill">データアーキテクチャ</span>
+          <span class="skill-pill">MLOps</span>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-label">セキュリティ・コンプライアンス</div>
+          <span class="skill-pill strong">セキュリティアーキテクチャ</span>
+          <span class="skill-pill">IAM / ゼロトラスト</span>
+          <span class="skill-pill">リスクマネジメント</span>
+          <span class="skill-pill">DevSecOps</span>
+          <span class="skill-pill">ペネトレーションテスト</span>
+          <span class="skill-pill">SOC / MSAC / SPIR</span>
+          <span class="skill-pill">ISO認証 / PwC監査</span>
+        </div>
+
+        <div class="skill-category">
+          <div class="skill-cat-label">ガバナンス・ツール</div>
+          <span class="skill-pill strong">LeanIX</span>
+          <span class="skill-pill">テクニカルガバナンス</span>
+          <span class="skill-pill">HLD文書作成・レビュー</span>
+          <span class="skill-pill">アセット管理</span>
+          <span class="skill-pill">Java / Python / JavaScript</span>
+        </div>
+      </div>
+
+      <!-- Languages -->
+      <div>
+        <div class="s-sec-title">言語</div>
+
+        <div class="lang-item">
+          <div class="lang-name-jp">日本語</div>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:82%"></div></div>
+          <div class="lang-desc">ビジネスレベル / JLPT N2</div>
+        </div>
+
+        <div class="lang-item">
+          <div class="lang-name-jp">英語</div>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
+          <div class="lang-desc">ネイティブレベル / ビジネス</div>
+        </div>
+
+        <div class="lang-item">
+          <div class="lang-name-jp">ポルトガル語</div>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
+          <div class="lang-desc">母国語</div>
+        </div>
+
+        <div class="lang-item">
+          <div class="lang-name-jp">スペイン語</div>
+          <div class="lang-bar"><div class="lang-bar-fill" style="width:40%"></div></div>
+          <div class="lang-desc">日常会話レベル</div>
+        </div>
+      </div>
+
+      <!-- Certifications -->
+      <div>
+        <div class="s-sec-title">資格・認定</div>
+        <div class="cert-row"><span class="cert-badge">MS</span>Azure Solutions Architect Expert<br><span style="font-size:6pt;opacity:.7;">AZ-104 &amp; AZ-305</span></div>
+        <div class="cert-row"><span class="cert-badge">GCP</span>Google Professional Cloud Architect</div>
+        <div class="cert-row"><span class="cert-badge">IBM</span>IBM Certified Solution Architect<br><span style="font-size:6pt;opacity:.7;">Cloud Computing Infrastructure</span></div>
+        <div class="cert-row"><span class="cert-badge">OG</span>IT4IT Foundation — The Open Group</div>
+        <div class="cert-row"><span class="cert-badge">PMP</span>Project Management Professional</div>
+        <div class="cert-row"><span class="cert-badge">ITIL</span>ITIL® v3 Foundation</div>
+        <div class="cert-row"><span class="cert-badge">LPI</span>LPIC-1 認定</div>
+      </div>
+
+      <!-- Education -->
+      <div>
+        <div class="s-sec-title">学歴</div>
+        <div style="font-size:7pt;color:var(--ink-mid);line-height:1.6;">
+          <div style="font-weight:700;">コンピュータサイエンス学士</div>
+          <div style="color:var(--ink-light);font-size:6.5pt;">UNESP（サンパウロ州立大学）</div>
+          <div style="color:var(--ink-light);font-size:6.5pt;">2003年 – 2007年 / ブラジル</div>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ───── MAIN CONTENT ───── -->
+    <main class="main">
+
+      <!-- 職務要約 -->
+      <section>
+        <div class="m-sec-title">職務要約</div>
+        <p class="summary-text">
+          ITアーキテクチャ分野において<strong>20年以上</strong>の実務経験を有するエンタープライズアーキテクト。大規模グローバル企業における<strong>エンタープライズ・ソリューションアーキテクチャ</strong>の設計・推進、<strong>テクニカルガバナンス</strong>、<strong>AI / クラウド / セキュリティ</strong>領域を中心に幅広い専門性を持つ。複数の変革プロジェクトをリードした実績を持ち、グローバルなステークホルダーとの連携・調整および経営層への技術提言においても豊富な経験を有する。日英二カ国語でのビジネスコミュニケーションが可能（日本語JLPT N2）。
+        </p>
+      </section>
+
+      <!-- 主なスキル・専門領域 -->
+      <section>
+        <div class="m-sec-title">主な専門領域</div>
+        <table class="comp-table">
+          <tr>
+            <td>アーキテクチャ設計</td>
+            <td>エンタープライズ・ソリューションアーキテクチャ / IT4ITフレームワーク / 分散システム設計</td>
+          </tr>
+          <tr>
+            <td>テクニカルガバナンス</td>
+            <td>アプリケーション申請審査・承認 / LeanIX管理 / HLD文書作成・レビュー / 監査対応</td>
+          </tr>
+          <tr>
+            <td>AI・生成AI</td>
+            <td>LLM統合アーキテクチャ / RAGパターン / AIガバナンス / IBM Watson実装経験</td>
+          </tr>
+          <tr>
+            <td>セキュリティ・コンプライアンス</td>
+            <td>セキュリティアーキテクチャ / IAM / ゼロトラスト / ISO認証支援 / PwC外部監査対応</td>
+          </tr>
+          <tr>
+            <td>クラウドアーキテクチャ</td>
+            <td>GCP / Azure / AWS / Kubernetes / マイクロサービス / マルチクラウド設計</td>
+          </tr>
+          <tr>
+            <td>グローバルリーダーシップ</td>
+            <td>日米欧亜にまたがるチームマネジメント / 経営層向けプレゼン / ステークホルダー調整</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- 職務経歴 -->
+      <section>
+        <div class="m-sec-title">職務経歴</div>
+
+        <!-- Kyndryl EA -->
+        <div class="exp-block">
+          <div class="exp-meta">
+            <div class="exp-company-jp">Kyndryl Japan株式会社</div>
+            <div class="exp-period">2023年9月 – 現在</div>
+          </div>
+          <div class="exp-role-jp">エンタープライズアーキテクト</div>
+          <div class="exp-dept">CIO エンタープライズアーキテクチャ部門 / 東京</div>
+
+          <span class="sub-label">テクニカルガバナンス・アーキテクチャ管理</span>
+          <ul class="exp-list">
+            <li>エンタープライズ全体のテクニカルガバナンスプロセスをリードし、新規アプリケーション申請および既存システムへの変更をアーキテクチャ・セキュリティ・運用基準の観点から審査・承認。</li>
+            <li>デプロイ前の最終承認ゲートキーパーとして、ステークホルダーとの認識統一と文書完全性を担保。</li>
+            <li>IT4IT（The Open Group）フレームワークを適用し、アーキテクチャガバナンスとアプリケーションライフサイクル管理を体系化。</li>
+          </ul>
+
+          <span class="sub-label">エンタープライズアセット管理・文書化</span>
+          <ul class="exp-list">
+            <li>全ソフトウェアアセットの<strong>LeanIX</strong>への正確な登録・分類・維持管理を統括し、アーキテクチャリポジトリの一貫性を確保。</li>
+            <li><strong>ハイレベル設計書（HLD）</strong>の作成・レビューをリードし、アーキテクチャ上の意思決定・リスク・依存関係をステークホルダー全員に明示。</li>
+            <li>常時最新状態の維持を徹底し、監査対応と追跡可能なガバナンスを実現。</li>
+          </ul>
+
+          <span class="sub-label">セキュリティ・リスク・コンプライアンス</span>
+          <ul class="exp-list">
+            <li>ペネトレーションテスト・リスクマネジメント・<strong>SOC / MSAC / SPIR</strong>等のコンプライアンスフレームワーク準拠を各アプリケーションで確保。</li>
+            <li><strong>ISO認証</strong>取得および外部監査（PwC）に向けた監査対応を支援し、Kyndrylの重要認証維持に貢献。</li>
+            <li>ガバナンスプロセス全体においてセキュリティ・バイ・デザインおよびリスクベース設計原則を適用。</li>
+          </ul>
+
+          <span class="sub-label">AIガバナンス</span>
+          <ul class="exp-list">
+            <li>責任あるAI活用・アーキテクチャ標準・リスク文書化を確保するAIガバナンス活動に参画・貢献。</li>
+          </ul>
+        </div>
+
+        <!-- Kyndryl Chief Architect -->
+        <div class="exp-block">
+          <div class="exp-meta">
+            <div class="exp-company-jp">Kyndryl Japan株式会社</div>
+            <div class="exp-period">2021年11月 – 2023年9月</div>
+          </div>
+          <div class="exp-role-jp">HRチーフアーキテクト</div>
+          <div class="exp-dept">CIO エンタープライズアプリケーション部門 / 東京</div>
+          <ul class="exp-list">
+            <li>IBMからKyndrylへのスピンオフに伴う大規模HRテクノロジー変革をリード。ビジネスプロセスの再設計と親会社インフラからのシステム分離を主導。</li>
+            <li>IT4ITフレームワークを適用してエンタープライズアーキテクチャ基盤を確立し、システムガバナンスと効率性を向上。</li>
+            <li><strong>140以上のHRシステム</strong>を経営戦略と整合させ、テクノロジーロードマップ策定において経営層と直接連携。</li>
+            <li>Microsoft Azure・GCP・IBM Cloudの現代的クラウドプラットフォーム採用を推進し、コスト削減と運用効率化を実現。</li>
+          </ul>
+        </div>
+
+        <!-- IBM Lead Architect -->
+        <div class="exp-block">
+          <div class="exp-meta">
+            <div class="exp-company-jp">日本アイ・ビー・エム株式会社</div>
+            <div class="exp-period">2019年11月 – 2021年11月</div>
+          </div>
+          <div class="exp-role-jp">リードアーキテクト — CIO HRIT</div>
+          <div class="exp-dept">東京</div>
+          <ul class="exp-list">
+            <li>日本向けSAP HRMSにおける給与計算変革プロジェクトのクラウドアーキテクチャを設計・実装。全上流・下流システムの統合を主導。</li>
+            <li>レガシーHRシステムをクラウドプラットフォームへ移行し、可用性・スケーラビリティ・コスト効率を大幅に改善。</li>
+            <li>IT4ITベースのガバナンスフレームワークを導入し、エンタープライズアーキテクチャプロセスを標準化。</li>
+          </ul>
+        </div>
+
+        <!-- IBM IT Architect -->
+        <div class="exp-block">
+          <div class="exp-meta">
+            <div class="exp-company-jp">IBM（グローバル / 米国）</div>
+            <div class="exp-period">2016年1月 – 2019年11月</div>
+          </div>
+          <div class="exp-role-jp">ITアーキテクト＆テクニカルリーダー — グローバルHR</div>
+          <ul class="exp-list">
+            <li>グローバルHRシステムのモダナイゼーションおよびクラウド移行をリードし、複数リージョンにわたる統合アーキテクチャを担当。</li>
+            <li><strong>IBM Watson</strong>を活用したAI TravelBotを開発。グローバル規模で従業員問い合わせを自動化し、業務負荷を大幅削減。複数の社内表彰を受賞。</li>
+            <li>出張・経費精算ツール（Travel &amp; Expenses / Mobility Tools）のiPaaS採用戦略を立案し、経営層の技術投資判断に貢献。</li>
+            <li>米州・欧州・アジア太平洋・日本にわたるグローバル分散エンジニアリングチームをリード。</li>
+          </ul>
+        </div>
+
+        <!-- IBM Senior IT Specialist -->
+        <div class="exp-block">
+          <div class="exp-meta">
+            <div class="exp-company-jp">IBM（ブラジル）</div>
+            <div class="exp-period">2011年1月 – 2016年1月</div>
+          </div>
+          <div class="exp-role-jp">シニアITスペシャリスト — テクニカルリーダー</div>
+          <ul class="exp-list">
+            <li><strong>WWER（世界規模経費精算システム）</strong>のテクニカルリーダーを担当。<strong>93カ国・40言語</strong>に展開し、IBM従業員の85%以上が利用するミッションクリティカルなグローバルプラットフォーム。</li>
+            <li>WebSphere / AIX / DB2による高可用性インフラを管理。主要なシステムアップグレード・リリース・環境変更をリード。</li>
+          </ul>
+        </div>
+
+        <!-- Early career -->
+        <div class="early-box">
+          <strong>初期キャリア（2001年 – 2011年）：</strong>IBM（Sprint/Nextel・MEDCO・OMIM）、FAPESP 等にてチームリーダー・開発者・BIアナリストとして従事。Javaアプリケーション開発・データベースエンジニアリング・システム統合・インフラ構築に従事。バージョン管理・本番環境サポート・データパイプラインエンジニアリングにおけるリーダー経験を保有。
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ══════════ FOOTER ══════════ -->
+  <footer class="footer">
+    <div class="footer-text">職務経歴書 — Wellington Chaves / ウェリントン・シャーヴィス</div>
+    <div class="footer-text">2025年作成</div>
+  </footer>
+
+</div>
+</body>
+</html>
