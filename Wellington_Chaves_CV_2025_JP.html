@@ -466,8 +466,61 @@
   @media print {
     html { font-size: 9pt; }
     body { background: #fff; }
-    .page { width: 210mm; box-shadow: none; }
+    .page { width: 210mm; box-shadow: none; margin: 0 auto; transform: none !important; }
     @page { margin: 0; size: A4; }
+    .controls { display: none !important; }
+  }
+
+  /* ─── ZOOM CONTROLS ─── */
+  .controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    border: 1px solid var(--rule);
+    min-width: 150px;
+  }
+  .controls label {
+    font-size: 8pt;
+    font-weight: 600;
+    color: var(--accent);
+    display: flex;
+    justify-content: space-between;
+  }
+  .controls input {
+    width: 100%;
+    cursor: pointer;
+  }
+  .controls button {
+    padding: 6px;
+    font-size: 8pt;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  .controls button:hover { opacity: 0.9; }
+
+  body {
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .page {
+    transform-origin: top center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 40px;
   }
 </style>
 </head>
@@ -480,7 +533,7 @@
       <div class="header-label">職務経歴書</div>
       <div class="name-jp">ウェリントン・シャーヴィス</div>
       <div class="name-en">Wellington Chaves</div>
-      <div class="title-jp">エンタープライズアーキテクト｜ソリューションアーキテクト｜AI・クラウド・セキュリティ</div>
+      <div class="title-jp">エンタープライズ・ソリューション・AIアーキテクト｜クラウド・セキュリティ</div>
     </div>
     <div class="header-contact">
       <div class="hc-item"><span class="hc-label">電話</span>080-7512-4244</div>
@@ -785,5 +838,49 @@
   </footer>
 
 </div>
+<div class="controls">
+  <label>ズーム <span id="zoomVal">100%</span></label>
+  <input type="range" id="zoomRange" min="50" max="150" value="100">
+  <button id="btnFit">画面に合わせる</button>
+  <button id="btnActual">標準サイズ</button>
+</div>
+
+<script>
+  const page = document.querySelector('.page');
+  const zoomRange = document.getElementById('zoomRange');
+  const zoomVal = document.getElementById('zoomVal');
+  const btnFit = document.getElementById('btnFit');
+  const btnActual = document.getElementById('btnActual');
+
+  function updateZoom(val) {
+    const scale = val / 100;
+    page.style.transform = `scale(${scale})`;
+    zoomVal.textContent = `${val}%`;
+    zoomRange.value = val;
+    // Adjust body height based on scaled page height
+    const scaledHeight = page.offsetHeight * scale;
+    document.body.style.height = `${scaledHeight + 40}px`;
+  }
+
+  function fitToWidth() {
+    const padding = 40;
+    const availableWidth = window.innerWidth - padding;
+    const pageWidth = page.offsetWidth;
+    const scale = Math.min(availableWidth / pageWidth, 1.2); // Cap at 1.2
+    updateZoom(Math.round(scale * 100));
+  }
+
+  zoomRange.addEventListener('input', (e) => updateZoom(e.target.value));
+  btnFit.addEventListener('click', fitToWidth);
+  btnActual.addEventListener('click', () => updateZoom(100));
+
+  window.addEventListener('resize', () => {
+    // Optional: auto-fit on resize if desired
+    // fitToWidth();
+  });
+
+  // Initial fit
+  window.addEventListener('load', fitToWidth);
+</script>
 </body>
 </html>
