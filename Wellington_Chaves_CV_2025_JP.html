@@ -464,6 +464,10 @@
   }
 
   @media print {
+    * {
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
     html { font-size: 9pt; }
     body { background: #fff; }
     .page { width: 210mm; box-shadow: none; margin: 0 auto; transform: none !important; }
@@ -843,6 +847,7 @@
   <input type="range" id="zoomRange" min="50" max="150" value="100">
   <button id="btnFit">画面に合わせる</button>
   <button id="btnActual">標準サイズ</button>
+  <button id="btnDownloadPdf" style="margin-top: 4px; background: var(--accent2);">PDFを保存 / 印刷</button>
 </div>
 
 <script>
@@ -851,6 +856,7 @@
   const zoomVal = document.getElementById('zoomVal');
   const btnFit = document.getElementById('btnFit');
   const btnActual = document.getElementById('btnActual');
+  const btnDownloadPdf = document.getElementById('btnDownloadPdf');
 
   function updateZoom(val) {
     const scale = val / 100;
@@ -873,6 +879,7 @@
   zoomRange.addEventListener('input', (e) => updateZoom(e.target.value));
   btnFit.addEventListener('click', fitToWidth);
   btnActual.addEventListener('click', () => updateZoom(100));
+  btnDownloadPdf.addEventListener('click', () => window.print());
 
   window.addEventListener('resize', () => {
     // Optional: auto-fit on resize if desired
