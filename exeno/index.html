@@ -134,10 +134,9 @@
 
   /* ─── LANGUAGE SWITCHER CONTAINER ─── */
   .lang-switch-container {
-    position: absolute;
-    top: 6mm;
-    right: 10mm;
-    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 6px;
   }
 
   .lang-switch {
@@ -643,6 +642,13 @@
     </div>
     
     <div class="header-contact">
+      <!-- Bilingual Tab Switcher -->
+      <div class="lang-switch-container">
+        <div class="lang-switch">
+          <button id="btn-ja" class="active" onclick="switchLanguage('ja')">日本語</button>
+          <button id="btn-en" onclick="switchLanguage('en')">English</button>
+        </div>
+      </div>
       <div class="hc-item"><span class="hc-label">TEL:</span>+81 (080) 7512-4244</div>
       <div class="hc-item"><span class="hc-label">EMAIL:</span>wchaves@gmail.com</div>
       <div class="hc-item">
@@ -650,14 +656,6 @@
         <span lang="en"><span class="hc-label">LOCATION:</span>Tokyo, Japan</span>
       </div>
       <div class="hc-item"><span class="hc-label">LINKEDIN:</span>linkedin.com/in/wchaves</div>
-    </div>
-
-    <!-- Bilingual Tab Switcher -->
-    <div class="lang-switch-container">
-      <div class="lang-switch">
-        <button id="btn-ja" class="active" onclick="switchLanguage('ja')">日本語</button>
-        <button id="btn-en" onclick="switchLanguage('en')">English</button>
-      </div>
     </div>
   </header>
 
