@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 250" width="100%" height="100%">
+  <rect width="200" height="250" fill="#1a3a5c" />
+  <circle cx="100" cy="95" r="45" fill="#fafaf8" opacity="0.15" />
+  <path d="M100,50 C75,50 55,70 55,95 C55,120 75,140 100,140 C125,140 145,120 145,95 C145,70 125,50 100,50 Z M100,125 C83.5,125 70,111.5 70,95 C70,78.5 83.5,65 100,65 C116.5,65 130,78.5 130,95 C130,111.5 116.5,125 100,125 Z" fill="#fafaf8" opacity="0.6" />
+  <path d="M100,150 C65,150 35,175 30,210 C30,212 31,215 33,215 L167,215 C169,215 170,212 170,210 C165,175 135,150 100,150 Z M46.5,200 C53,180 74.5,165 100,165 C125.5,165 147,180 153.5,200 L46.5,200 Z" fill="#fafaf8" opacity="0.6" />
+  <text x="100" y="235" font-family="'DM Sans', sans-serif" font-size="10" fill="#fafaf8" font-weight="500" letter-spacing="1" text-anchor="middle" opacity="0.5">REPLACE WITH PHOTO</text>
+</svg>
